@@ -1,0 +1,30 @@
+﻿4.odev
+
+Önce normal pagination yapmayi oğrenelim
+
+Hocanın 4. ders kodlarından gidelim
+olmadı
+youtube olmadı
+oğuzcanın ödevden baktım olmadı
+-
+sıfırdan DEvarchitecturedeen bakalım
+
+1- business helpers-pagination helper
+2- bu paginated result istiyor
+3-core  utitlities  resulltsa paginated resullts
+bu da core utilites messasgeste pagnation message isityor
+4- pagination helper ayrıca pagination filter istiyor
+5-  helper ayrıca uri service istiyor-
+	core utilities URI klasörüne uri service ve uri manager
+6-uri manager-query helpers istiyor-çöz-aspnetcore webutilities
+
+YİNE DALDA KALDIM
+CTOR VE PRİVATE i ne yapacam bilmiyorum
+
+CORE daki efcorerepobase deki ctoru yaptım düzelir inş
+
+
+
+
+
+	
