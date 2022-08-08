@@ -2,6 +2,7 @@
 using Business.Abstract;
 using Business.Constants;
 using Business.Helpers;
+using Core.Aspects.Caching;
 using Core.Entities.Concrete;
 using Core.Extensions;
 using Core.Utilities.Results;
@@ -58,6 +59,7 @@ namespace Business.Concrete
             return new Result(true);
         }
 
+        [CacheAspect]
         public async Task<IDataResult<IEnumerable<PersonDto>>> GetPaginationAsync(PaginationFilter paginationFilter, PersonDto filterResource,string route)
         {
             

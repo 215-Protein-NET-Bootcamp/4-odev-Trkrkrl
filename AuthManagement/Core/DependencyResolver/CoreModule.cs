@@ -1,4 +1,6 @@
-﻿using Core.Utilities.IoC;
+﻿using Core.CrossCuttingConcern.Caching;
+using Core.CrossCuttingConcern.Caching.Microsoft;
+using Core.Utilities.IoC;
 using Core.Utilities.URI;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +16,7 @@ namespace Core.DependencyResolver
     {
         public void Load(IServiceCollection serviceCollection)
         {
-            serviceCollection.AddMemoryCache();
+            serviceCollection.AddMemoryCache();//bu caching için elzem
             serviceCollection.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //uri ilişki hatası için/-
             //aşağıdaki çözmedi- düz <IUriService,UriManager> hali de çözmedi
@@ -25,6 +27,9 @@ namespace Core.DependencyResolver
                 var uri = string.Concat(request?.Scheme, "://", request?.Host.ToUriComponent(), request?.PathBase);
                 return new UriManager(uri);
             });
+            //-cache için   
+            serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();
+
 
 
         }

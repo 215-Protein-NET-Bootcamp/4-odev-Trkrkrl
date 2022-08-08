@@ -42,8 +42,75 @@ data dataskip i geçince sıfırlıyor
 -
 bunun da nedeni pagination helperdaki skip ve take in zaten  dalda yapılmış olmasında kaynaklıydı
 pagine edilmiş veriyi tekrar pagine etmeye calisiyordu
+---
+2. commit cachinge geçiş
 
+2.adim:Cache Mimarisi kuralim
+ core cros cutting -caching icerisine Icachemanger interaface'i acalim-kodlar recap projemden
 
+ ?->farklı bir method için gerekebilir
+
+ caching icerisine microsoft klasoru acalim: microsoftun caching tekniklerini kullanacagimizdan
+ Add new class MemoryCacheManager: Icachemanager turevidir, implementasyonunu yap
+
+ aspectler normal bagimlilik zincirinde bulunmadigindan core module 'a serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>(); ekle
+ buradaki memorycache yerine yeri gelince baska bir teknik istenirse burada yazman yeterli
+
+ 
+ memory cache deyiz
+ IMemoryCache _memoryCache; ctor
+ yaz
+  geri kalan kodlari dolduralim remove by pattern haric
+  remove by patter -constructor ister yukarda yaptigindan eminol
+  using Microsoft.Extensions.DependencyInjection; gerekli ampul ile cozulemiyor yoksa
+  -
+  remove by patterni repodan aldik
+  remove by su ise yarar: icerisinde ..... icerenleri sil
+  _cacheleri memorycache ile degis: direkt repodan aldiysan
+  regex leri coz
+  --
+  core aspects autofac klasörü oluştur
+  içerisine caching klasörü
+  caching içerisine cache ve cacheremove aspect methodlarını koy
+  -
+  core-aspects-autofac-caching(new klasor)-cache aspect (new class)
+  icerisine koldari yapistir
+	using Microsoft.Extensions.DependencyInjection; gerekiyor yine
+	geri kalan yerleri de coz
+
+--
+	simdi remove aspect-
+		cache olarak tutulan dataya ait bir degisikli soz konusu ise remove eder
+		ayni caching klasorunde  cacheremoveaspect klasoru acalim
+		ders kodundan kopyala-ayni sekilde coz -
+			using Microsoft.Extensions.DependencyInjection; unutma
+-
+mimari olarak caching tamam
+-
+cache aspectlerin kullanilaccaklari yerlere ekleyecegiz-
+simdi sirasiyla yapalim
+cache aspect-person managerde GetPaginationAsync'e eklenecek-
+[CacheAspect]
+	ekle ve coz
+	
+	cacheremoveaspect- PersonManagerde add update ve delete methodlarına remove cache eklersin => bu sayede bilir ki data değişti
+	cacheyi sileyim der-not cache remove icerisine "ICarService.Get") ister
+
+	-
+	test ettim
+	aynı page koşullarında iki defa get yaptım
+	ilkinde dal a giderken 2. de dala gitmedi
+	yani caching calisiyor
+
+	-
+Şimdi şöyle bir durum var ödevde
+
+sayfa bilgilerinden oluşan bir cache key  olsun diyor
+
+bu  key aynı olduğu sürece aynı veri cacheden gelsin
+cache key değişince tekrar db den veri ceksin
+
+cachekeyimiz cacheaspectte olusturuluyor-method ve querysinin bilgilerine göre olusturuuyor-yani yontem uygun bence
 
 
 	

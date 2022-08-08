@@ -26,8 +26,7 @@ namespace Business.Helpers
         {
             data = data; 
                 
-                /*.Skip((paginationFilter.PageNumber-1 ) * paginationFilter.PageSize)
-                .Take(paginationFilter.PageSize);*/
+           
             int roundedTotalPages;
             var response =
                 new PaginatedResult<IEnumerable<T>>(data, paginationFilter.PageNumber, paginationFilter.PageSize);
