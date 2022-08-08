@@ -15,4 +15,4 @@ Bu ödevde MemoryCache tercih edilmiştir.
 Caching için farklı bir araç (ör: Redis) tercih edilmesi durumunda sadece coremoduledaki araç adı değiştirilmesi yeterli olacaktir.
 Caching için key oluşturma işlemi cacheaspectte yapılmaktadır.
 
-
+Ödevi yapma şeklim webapi içerisindeki nasilyapilir kasöründe aşama aşama açıklanmıştır.
