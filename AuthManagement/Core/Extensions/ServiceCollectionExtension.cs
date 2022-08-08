@@ -1,4 +1,5 @@
 ﻿using Core.Utilities.IoC;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,10 @@ namespace Core.Extensions
         {
             foreach (var module in modules)
             {
-                module.Load(serviceCollection);
+                module.Load(serviceCollection);//configuration ekledik-hemburda hem ıoc Icoremodulede
 
             }
-            return ServiceTool.Create(serviceCollection);
+            return ServiceTool.Create(serviceCollection );
         }
 
     }

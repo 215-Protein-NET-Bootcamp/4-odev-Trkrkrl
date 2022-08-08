@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.DataAccess.Abstract
 {
-    public interface IBaseRepository<T> where T : class, IEntity, new()
+    public interface IBaseRepository<T> where T : class, IEntity,new()
     {
 
         List<T> GetAll(Expression<Func<T, bool>> filter = null);//içerisinde ....geçenleri getir fonksiyonu

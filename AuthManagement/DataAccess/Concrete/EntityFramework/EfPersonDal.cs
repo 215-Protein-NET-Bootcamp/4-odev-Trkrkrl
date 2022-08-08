@@ -16,18 +16,21 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfPersonDal: EfEntityBaseRepository<Person, EfCoreDbContext>, IPersonDal
     {
-    
+
+       
         public EfPersonDal(EfCoreDbContext context):base(context)   
         {
-            //bunun düzgün çalışması için efrepobasedeki ctoru düzenle
+            //bunun düzgün çalışması için efrepobasedeki ctoru düzenle7
+            
+
         }
 
         public async Task<(IEnumerable<Person> records, int total)> GetPaginationAsync(PaginationFilter paginationFilter, PersonDto filterResource)
         {
             
-                var queryable = ConditionFilter(filterResource);
+            var queryable = ConditionFilter(filterResource);
 
-                var total = await queryable.CountAsync();
+            var total = await queryable.CountAsync();
 
             var records = await queryable.AsNoTracking()
             .AsSplitQuery()

@@ -26,7 +26,7 @@ namespace Business.DependencyResolver.AutoFac
             builder.RegisterType<EfPersonDal>().As<IPersonDal>().SingleInstance();
 
 
-            builder.RegisterType<UriManager>().As<IUriService>().SingleInstance();
+            
 
            
 

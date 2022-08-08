@@ -4,6 +4,7 @@ using Core.Extensions;
 using Core.Utilities.IoC;
 using Core.Utilities.Security.Encryption;
 using Core.Utilities.Security.JWT;
+using DataAccess.Concrete.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -65,11 +66,14 @@ namespace WebAPI
 
             services.AddCustomizeSwagger();
             services.AddAutoMapper(typeof(AutoMapperHelper));//automapper nuget yukle duzelir-ve icerisindeki profile adi-bizdeki automapperhelper
+            services.AddDbContext<EfCoreDbContext>();//buna gerek olmamasi lazim-2 proje bunsuz calisti
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+           
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -14,6 +14,9 @@ namespace DataAccess.Concrete.Context
 {
     public class EfCoreDbContext:DbContext
     {
+       
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {//hocanın kodunda startupcsten alıyordu-  ama benim yapıma uymadı-
             //configuraiton managerle appsettingsten gerekenleri cekip burada if else ile secim sagladım

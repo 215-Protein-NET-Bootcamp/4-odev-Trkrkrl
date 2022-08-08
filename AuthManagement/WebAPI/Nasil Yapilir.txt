@@ -23,6 +23,25 @@ CTOR VE PRİVATE i ne yapacam bilmiyorum
 
 CORE daki efcorerepobase deki ctoru yaptım düzelir inş
 
+ne mi yaptık
+çoğunu atlıyor olabilirim ama
+
+startupa add.dbcontext yapınca dallardaki birbirini bulamamayla ilgili problem gitti
+bu arada dallarda ctor yaptım hangisine neden bilmiyorum
+
+şimdi uride hata  veriyor--> core deppendencyresolver core module 'a git oradaki kod çözüyor
+çözmğyorumuşş
+hah şimdi oldu coremoduledeki aynı  kalacak-
+autofacbusinesmoduleye koyduğum uri manager kaldırdım oldu
+
+fakat data kısmında sadece [] var
+
+pagination helperda
+data = data.Skip lı kısımda kaldım- methoda 3 data giriyor
+data dataskip i geçince sıfırlıyor
+-
+bunun da nedeni pagination helperdaki skip ve take in zaten  dalda yapılmış olmasında kaynaklıydı
+pagine edilmiş veriyi tekrar pagine etmeye calisiyordu
 
 
 

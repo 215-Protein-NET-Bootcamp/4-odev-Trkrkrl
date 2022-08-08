@@ -24,8 +24,10 @@ namespace Business.Helpers
         /// <returns>Paginated result</returns>
         public static PaginatedResult<IEnumerable<T>> CreatePaginatedResponse<T>(IEnumerable<T> data, PaginationFilter paginationFilter, int totalRecords, IUriService uriService, string route)
         {
-            data = data.Skip((paginationFilter.PageNumber - 1) * paginationFilter.PageSize)
-                .Take(paginationFilter.PageSize);
+            data = data; 
+                
+                /*.Skip((paginationFilter.PageNumber-1 ) * paginationFilter.PageSize)
+                .Take(paginationFilter.PageSize);*/
             int roundedTotalPages;
             var response =
                 new PaginatedResult<IEnumerable<T>>(data, paginationFilter.PageNumber, paginationFilter.PageSize);
@@ -56,6 +58,7 @@ namespace Business.Helpers
                 uriService.GeneratePageRequestUri(new PaginationFilter(roundedTotalPages, paginationFilter.PageSize), route);
             response.TotalPages = roundedTotalPages;
             response.TotalRecords = totalRecords;
+            
             return response;
         }
     }
