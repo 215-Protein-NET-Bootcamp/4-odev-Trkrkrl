@@ -6,7 +6,7 @@ Pagination and Caching For Person
 
 <br/>
 
-<img src="https://github.com/215-Protein-NET-Bootcamp/3-odev-Trkrkrl/blob/main/get-paginated.png">
+<img src="https://github.com/215-Protein-NET-Bootcamp/4-odev-Trkrkrl/blob/main/AuthManagement/Images/get-paginated.png">
 
 <br/>
 
