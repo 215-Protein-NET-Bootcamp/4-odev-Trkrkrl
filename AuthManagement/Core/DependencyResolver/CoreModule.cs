@@ -28,7 +28,9 @@ namespace Core.DependencyResolver
                 return new UriManager(uri);
             });
             //-cache için   
-            serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();
+            serviceCollection.AddSingleton<ICacheManager, MemoryCacheManager>();//tercih edilen cache aracını değiştirmek istersen sadece
+                                                                                //memrocachemanager yerinde ör: Rediscachemanageri yaz 
+                                                                                //diğeryerlerde kod yazman gerekmez
 
 
 
